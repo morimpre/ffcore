@@ -8,8 +8,11 @@ import 'auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:core/login/login_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'login/login_widget.dart';
 import 'chat_main/chat_main_widget.dart';
 import 'my_profile/my_profile_widget.dart';
+import 'my_friends/my_friends_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -95,13 +98,23 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'Login': LoginWidget(),
       'chatMain': ChatMainWidget(),
       'myProfile': MyProfileWidget(),
+      'MyFriends': MyFriendsWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              size: 24,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.chat_bubble_outline,
@@ -125,12 +138,24 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             label: '',
             tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.group_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.group,
+              size: 24,
+            ),
+            label: 'My Friends',
+            tooltip: '',
           )
         ],
-        backgroundColor: FlutterFlowTheme.dark900,
+        backgroundColor: Colors.white,
         currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: Color(0xFF4B39EF),
-        unselectedItemColor: Color(0x98939393),
+        selectedItemColor: Color(0xFF84B9BD),
+        unselectedItemColor: Color(0xFFB7B7BA),
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
         showSelectedLabels: false,
         showUnselectedLabels: false,

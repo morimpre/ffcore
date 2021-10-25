@@ -4,8 +4,9 @@ import '../chat_details/chat_details_widget.dart';
 import '../flutter_flow/chat/index.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../my_friends/my_friends_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ChatMainWidget extends StatefulWidget {
@@ -29,8 +30,9 @@ class _ChatMainWidgetState extends State<ChatMainWidget> {
             child: SizedBox(
               width: 50,
               height: 50,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.primaryColor,
+              child: SpinKitThreeBounce(
+                color: Color(0xFF84B9BD),
+                size: 50,
               ),
             ),
           );
@@ -60,7 +62,7 @@ class _ChatMainWidgetState extends State<ChatMainWidget> {
                   type: PageTransitionType.bottomToTop,
                   duration: Duration(milliseconds: 250),
                   reverseDuration: Duration(milliseconds: 250),
-                  child: MyFriendsWidget(),
+                  child: NavBarPage(initialPage: 'MyFriends'),
                 ),
               );
             },
@@ -93,8 +95,9 @@ class _ChatMainWidgetState extends State<ChatMainWidget> {
                           child: SizedBox(
                             width: 50,
                             height: 50,
-                            child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.primaryColor,
+                            child: SpinKitThreeBounce(
+                              color: Color(0xFF84B9BD),
+                              size: 50,
                             ),
                           ),
                         );
